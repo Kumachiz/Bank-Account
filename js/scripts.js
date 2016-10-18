@@ -13,13 +13,13 @@ function Balance(transaction, balance) {
   this.newBalance = [''];
 
 }
-Balance.prototype.depositMath = function() {
-  if(transaction === deposit) {
-    return newBalance += balance + this.newBalance;
+Balance.prototype.depositMath = function(deposit) {
+  if(transaction === "deposit") {
+    this.balance += deposit;
   }
 }
 
-Balance.prototype.depositMath = function() {
+Balance.prototype.wMath = function() {
   if(transaction === withdrawal) {
     return newBalance -= balance + this.newBalance;
   }
@@ -45,6 +45,11 @@ $(document).ready(function() {
     var moneyInOutAmount = parseInt($("#money-in-out").val());
 
     var newBalance = new Balance(moneyInOut, moneyInOutAmount)
+    if (moneyInOut === "deposit") {
+      newBalance.depositMath(moneyInOutAmount);
+    } else {
+
+    }
 
     $(".account-balance").append("" + newBalance.Balance() + "");
 
